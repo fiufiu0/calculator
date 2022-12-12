@@ -1,3 +1,21 @@
+const displayNum = document.getElementById('displayNum');
+const displaySum = document.getElementById('displaySum');
+const allClear = document.getElementById('allClear');
+const clear = document.getElementById('clear');
+const modulo = document.getElementById('modulo');
+const divide = document.getElementById('divide');
+const add = document.getElementById('add');
+const subtract = document.getElementById('subtract');
+const multiply = document.getElementById('multiply');
+const equal = document.getElementById('equal');
+const buttons = document.querySelectorAll('.btn');
+
+
+
+let displayValue = '';
+let firstNum = '';
+let secondNum = '';
+
 function add(a,b){
     return a + b;
 }

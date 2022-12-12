@@ -5,40 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="main">
       <div class="calculator">
         <div class="display">
-          <div>5 + 5</div>
-          <div>10</div>
+          <div id="displayNum"></div>
+          <div id="displaySum"></div>
         </div>
         <div class="grid">
-          <button>AC</button>
-          <button>C</button>
-          <button>%</button>
-          <button>/</button>
+          <button id="allClear">AC</button>
+          <button id="clear">C</button>
+          <button id="modulo">%</button>
+          <button id="divide">/</button>
 
-          <button>7</button>
-          <button>8</button>
-          <button>9</button>
-          <button>+</button>
+          <button class="btn" data-value="7">7</button>
+          <button class="btn" data-value="8">8</button>
+          <button class="btn" data-value="9">9</button>
+          <button id="add">+</button>
 
-          <button>4</button>
-          <button>5</button>
-          <button>6</button>
-          <button>-</button>
+          <button class="btn" data-value="4">4</button>
+          <button class="btn" data-value="5">5</button>
+          <button class="btn" data-value="6">6</button>
+          <button id="subtract">-</button>
 
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
-          <button>*</button>
+          <button class="btn" data-value="1">1</button>
+          <button class="btn" data-value="2">2</button>
+          <button class="btn" data-value="3">3</button>
+          <button id="multiply">*</button>
 
-          <button>0</button>
+          <button class="btn" data-value="0">0</button>
           <button>.</button>
-          <button class="equal">=</button>
+          <button class="equal" id="equal">=</button>
         </div>
       </div>
     </div>
