@@ -3,18 +3,26 @@ const displaySum = document.getElementById('displaySum');
 const allClear = document.getElementById('allClear');
 const clear = document.getElementById('clear');
 const modulo = document.getElementById('modulo');
-const divide = document.getElementById('divide');
-const add = document.getElementById('add');
-const subtract = document.getElementById('subtract');
-const multiply = document.getElementById('multiply');
-const equal = document.getElementById('equal');
+const divideBtn = document.getElementById('divide');
+const addBtn = document.getElementById('addBtn');
+const subtractBtn = document.getElementById('subtract');
+const multiplyBtn = document.getElementById('multiply');
+const equalBtn = document.getElementById('equal');
 const buttons = document.querySelectorAll('.btn');
 
+buttons.forEach((button) => {
+    button.addEventListener('click', displayNumbers)
+})
 
+addBtn.onclick = () => {
+    secondNum = "+"
+    displaySum.textContent = `${secondNum}`
+}
 
 let displayValue = '';
 let firstNum = '';
 let secondNum = '';
+
 
 function add(a,b){
     return a + b;
@@ -50,4 +58,10 @@ function operate(a,b,operator){
     }
 }
 
-operate(2,2,"+");
+function displayNumbers(e){
+    console.log(e)
+    firstNum = e.target.dataset.value;
+    displayNum.textContent = `${firstNum}`;
+   
+    
+}
