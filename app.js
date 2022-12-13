@@ -3,26 +3,26 @@ const displaySum = document.getElementById('displaySum');
 const allClear = document.getElementById('allClear');
 const clear = document.getElementById('clear');
 const modulo = document.getElementById('modulo');
-const divideBtn = document.getElementById('divide');
+const divideBtn = document.getElementById('divideBtn');
 const addBtn = document.getElementById('addBtn');
-const subtractBtn = document.getElementById('subtract');
-const multiplyBtn = document.getElementById('multiply');
-const equalBtn = document.getElementById('equal');
+const subtractBtn = document.getElementById('subtractBtn');
+const multiplyBtn = document.getElementById('multiplyBtn');
+const equalBtn = document.getElementById('equalBtn');
 const buttons = document.querySelectorAll('.btn');
+
+let displayValue = '';
+let firstNum = '';
+let secondNum = '';
+let operatorNum = '';
 
 buttons.forEach((button) => {
     button.addEventListener('click', displayNumbers)
 })
 
-addBtn.onclick = () => {
-    secondNum = "+"
-    displaySum.textContent = `${secondNum}`
-}
-
-let displayValue = '';
-let firstNum = '';
-let secondNum = '';
-
+divideBtn.onclick = () => evaluate();
+addBtn.onclick = () => evaluate();
+subtractBtn.onclick = () => evaluate();
+multiplyBtn.onclick = () => evaluate();
 
 function add(a,b){
     return a + b;
@@ -39,7 +39,6 @@ function multiply(a,b){
 function divide(a,b){
     return a / b;
 }
-
 
 function operate(a,b,operator){
     switch (operator) {
@@ -61,7 +60,16 @@ function operate(a,b,operator){
 function displayNumbers(e){
     console.log(e)
     firstNum = e.target.dataset.value;
-    displayNum.textContent = `${firstNum}`;
+    displayValue = firstNum;
+    displayNum.textContent = `${displayValue}`;
+
+    // if(addBtn == 'click'){
+    //     secondNum = e.target.dataset.value;
+    //     // displayNum.textContent += secondNum;
+    // }
    
-    
+}
+
+function evaluate(){
+    console.log("evaluate")
 }
