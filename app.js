@@ -19,10 +19,10 @@ buttons.forEach((button) => {
     button.addEventListener('click', displayNumbers)
 })
 
-divideBtn.onclick = () => evaluate();
-addBtn.onclick = () => evaluate();
-subtractBtn.onclick = () => evaluate();
-multiplyBtn.onclick = () => evaluate();
+divideBtn.onclick = (e) => evaluate(e);
+addBtn.onclick = (e) => evaluate(e);
+subtractBtn.onclick = (e) => evaluate(e);
+multiplyBtn.onclick = (e) => evaluate(e);
 
 function add(a,b){
     return a + b;
@@ -63,13 +63,17 @@ function displayNumbers(e){
     displayValue = firstNum;
     displayNum.textContent = `${displayValue}`;
 
-    // if(addBtn == 'click'){
-    //     secondNum = e.target.dataset.value;
-    //     // displayNum.textContent += secondNum;
-    // }
-   
+    
 }
 
-function evaluate(){
-    console.log("evaluate")
+function evaluate(e){
+    console.log(e)
+    if(firstNum === ''){
+        return;
+    } else {
+        operatorNum = e.target.innerText;
+        displayValue = firstNum + operatorNum;
+        displayNum.textContent = `${displayValue}`
+    }
+    
 }
