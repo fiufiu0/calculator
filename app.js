@@ -59,11 +59,14 @@ function operate(a,b,operator){
 
 function displayNumbers(e){
     console.log(e)
-    firstNum = e.target.dataset.value;
+    if(firstNum === ''){
+        firstNum = e.target.dataset.value;
     displayValue = firstNum;
     displayNum.textContent = `${displayValue}`;
-
-    
+    } else {
+        secondNum = e.target.dataset.value;
+    displaySum.textContent = `${secondNum}`;
+    } 
 }
 
 function evaluate(e){
@@ -74,6 +77,5 @@ function evaluate(e){
         operatorNum = e.target.innerText;
         displayValue = firstNum + operatorNum;
         displayNum.textContent = `${displayValue}`
-    }
-    
+    } 
 }
