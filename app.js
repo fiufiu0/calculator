@@ -23,6 +23,14 @@ divideBtn.onclick = (e) => evaluate(e);
 addBtn.onclick = (e) => evaluate(e);
 subtractBtn.onclick = (e) => evaluate(e);
 multiplyBtn.onclick = (e) => evaluate(e);
+allClear.onclick = () => {
+    firstNum = '';
+    secondNum = '';
+    operatorNum = '';
+    displayValue = '';
+    displayNum.textContent = '';
+    displaySum.textContent = '';
+}
 
 function add(a,b){
     return a + b;
