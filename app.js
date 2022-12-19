@@ -23,6 +23,7 @@ divideBtn.onclick = (e) => evaluate(e);
 addBtn.onclick = (e) => evaluate(e);
 subtractBtn.onclick = (e) => evaluate(e);
 multiplyBtn.onclick = (e) => evaluate(e);
+equalBtn.onclick = () => sum(firstNum, secondNum, operatorNum);
 allClear.onclick = () => {
     firstNum = '';
     secondNum = '';
@@ -49,8 +50,12 @@ function divide(a,b){
 }
 
 function operate(a,b,operator){
+    a = Number(a);
+	b = Number(b);
+    console.log(operator)
     switch (operator) {
         case "+":
+            console.log(operator,a,b)
             add(a,b);
             break;
         case "-":
@@ -72,7 +77,7 @@ function displayNumbers(e){
     displayValue = firstNum;
     displayNum.textContent = `${displayValue}`;
     } else {
-        secondNum = e.target.dataset.value;
+        secondNum += e.target.dataset.value;
     displaySum.textContent = `${secondNum}`;
     } 
 }
@@ -87,3 +92,13 @@ function evaluate(e){
         displayNum.textContent = `${displayValue}`
     } 
 }
+
+function sum(firstNum, secondNum, operatorNum){
+    console.log(firstNum,secondNum,operatorNum)
+    let summer = operate(firstNum, secondNum, operatorNum);
+    console.log(summer)
+    displaySum.textContent = `${summer}`
+}
+
+console.log(operate(5, 5, operatorNum))
+console.log(add("5","5"))
