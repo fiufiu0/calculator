@@ -72,31 +72,29 @@ function operate(operator, a, b){
 }
 
 function displayNumbers(e){
-    console.log(e)
-    if(firstNum === ''){
-        firstNum = e.target.dataset.value;
-    displayValue = firstNum;
-    displayNum.textContent = `${displayValue}`;
-    } else {
-        secondNum += e.target.dataset.value;
-    displaySum.textContent = `${secondNum}`;
-    } 
+    displayValue += e.target.dataset.value;
+    displaySum.textContent = displayValue;
 }
 
 function evaluate(e){
     console.log(e)
-    if(firstNum === ''){
-        return;
-    } else {
-        operatorNum = e.target.innerText;
-        displayValue = firstNum + operatorNum;
-        displayNum.textContent = `${displayValue}`
-    } 
+    firstNum = displaySum.textContent;
+    console.log("first num", firstNum)
+    operatorNum = e.target.innerText;
+    displayNum.textContent = `${firstNum} ${operatorNum}`;
+    
+    displayValue = '';
+    console.log(secondNum)
+    displaySum.textContent = secondNum;
+    
 }
 
-function sum(firstNum, secondNum, operatorNum){
-    console.log(firstNum,secondNum,operatorNum)
-    let summer = operate(firstNum, secondNum, operatorNum);
-    console.log(summer)
-    displaySum.textContent = `${summer}`
+
+function sum(){
+    secondNum = displaySum.textContent;
+    displayNum.textContent = `${firstNum} ${operatorNum} ${secondNum}`;
+    console.log(secondNum, firstNum, operatorNum)
+    // displaySum.textContent = operate(firstNum, secondNum, operatorNum)
+    let sumDigits = operate(operatorNum, firstNum, secondNum)
+    displaySum.textContent = sumDigits;
 }
