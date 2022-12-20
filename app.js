@@ -9,6 +9,7 @@ const subtractBtn = document.getElementById('subtractBtn');
 const multiplyBtn = document.getElementById('multiplyBtn');
 const equalBtn = document.getElementById('equalBtn');
 const buttons = document.querySelectorAll('.btn');
+const operators = document.querySelectorAll('[data-operator]');
 
 let displayValue = '';
 let firstNum = '';
@@ -19,18 +20,22 @@ buttons.forEach((button) => {
     button.addEventListener('click', displayNumbers)
 })
 
-divideBtn.onclick = (e) => evaluate(e);
-addBtn.onclick = (e) => evaluate(e);
-subtractBtn.onclick = (e) => evaluate(e);
-multiplyBtn.onclick = (e) => evaluate(e);
-equalBtn.onclick = () => sum(firstNum, secondNum, operatorNum);
+operators.forEach((button) => {
+    button.addEventListener('click', evaluate)
+})
+
+// divideBtn.onclick = (e) => evaluate(e);
+// addBtn.onclick = (e) => evaluate(e);
+// subtractBtn.onclick = (e) => evaluate(e);
+// multiplyBtn.onclick = (e) => evaluate(e);
+equalBtn.onclick = () => sum();
 allClear.onclick = () => {
     firstNum = '';
     secondNum = '';
     operatorNum = '';
     displayValue = '';
     displayNum.textContent = '';
-    displaySum.textContent = '';
+    displaySum.textContent = '0';
 }
 
 function add(a,b){
@@ -49,24 +54,20 @@ function divide(a,b){
     return a / b;
 }
 
-function operate(a,b,operator){
+function operate(operator, a, b){
     a = Number(a);
 	b = Number(b);
     console.log(operator)
     switch (operator) {
         case "+":
             console.log(operator,a,b)
-            add(a,b);
-            break;
+            return add(a,b);
         case "-":
-            subtract(a,b);
-            break;
+            return subtract(a,b);
         case "*":
-            multiply(a,b);
-            break;
+            return multiply(a,b);
         case "/":
-            divide(a,b);
-            break;
+            return divide(a,b);
     }
 }
 
@@ -99,6 +100,3 @@ function sum(firstNum, secondNum, operatorNum){
     console.log(summer)
     displaySum.textContent = `${summer}`
 }
-
-console.log(operate(5, 5, operatorNum))
-console.log(add("5","5"))
