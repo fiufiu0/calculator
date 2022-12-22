@@ -54,12 +54,24 @@ button {
     background: #3396FF;
     border: 1px solid #000;
     cursor: pointer;
+    font-weight: 500;
 }
 
 button:hover {
-    background: #50a4fd;
+    background: #edf6ff5e;
 }
 
+.equal {
+    background: #164294;
+}
+
+.clear {
+    background: #6aa5ff;
+}
+
+.operators {
+    background: #2344ff;
+}
 .calculator {
     background: #1b81ee;
     padding: 15px;
