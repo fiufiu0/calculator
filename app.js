@@ -33,11 +33,10 @@ allClear.onclick = () => {
 
 
 function displayNumbers(e){
-    displayValue += e.target.dataset.value;
-    displaySum.textContent = displayValue;
-    if(displayValue.length > 10) {
-        displaySum.innerText = displayValue.substring(0, 10);
-    }
+    if(displayValue.length < 10){
+        displayValue += e.target.dataset.value;
+        displaySum.textContent = displayValue;
+    } 
 }
 
 function evaluate(e){
