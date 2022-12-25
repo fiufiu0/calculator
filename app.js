@@ -21,6 +21,7 @@ operators.forEach((button) => {
 })
 
 equalBtn.onclick = () => sum();
+
 allClear.onclick = () => {
     firstNum = '';
     secondNum = '';
@@ -34,16 +35,18 @@ allClear.onclick = () => {
 function displayNumbers(e){
     displayValue += e.target.dataset.value;
     displaySum.textContent = displayValue;
+    if(displayValue.length > 10) {
+        displaySum.innerText = displayValue.substring(0, 10);
+    }
 }
 
 function evaluate(e){
-    // firstNum = displaySum.textContent;
     firstNum = displayValue;
-    console.log(e)
     operatorNum = e.target.innerText;
     displayNum.textContent = `${firstNum} ${operatorNum}`;
+    console.log("displayvalue przed", displayValue)
     displayValue = '';
-    console.log(secondNum)
+    console.log("displayvalue po", displayValue)
     displaySum.textContent = secondNum;
     
 }
@@ -52,8 +55,6 @@ function evaluate(e){
 function sum(){
     secondNum = displaySum.textContent;
     displayNum.textContent = `${firstNum} ${operatorNum} ${secondNum}`;
-    console.log(secondNum, firstNum, operatorNum)
-    // displaySum.textContent = operate(firstNum, secondNum, operatorNum)
     let sumDigits = operate(operatorNum, firstNum, secondNum)
     displaySum.textContent = sumDigits;
 }
