@@ -10,7 +10,7 @@ const operators = document.querySelectorAll('[data-operator]');
 let displayValue = '';
 let firstNum = '';
 let secondNum = '';
-let operatorNum = '';
+let operatorNum = null;
 
 buttons.forEach((button) => {
     button.addEventListener('click', displayNumbers)
@@ -40,22 +40,21 @@ function displayNumbers(e){
 }
 
 function evaluate(e){
-    firstNum = displayValue;
+    firstNum = displaySum.textContent;
     operatorNum = e.target.innerText;
     displayNum.textContent = `${firstNum} ${operatorNum}`;
-    console.log("displayvalue przed", displayValue)
     displayValue = '';
-    console.log("displayvalue po", displayValue)
-    displaySum.textContent = secondNum;
     
 }
 
 
 function sum(){
+    if(operatorNum === null) return
     secondNum = displaySum.textContent;
-    displayNum.textContent = `${firstNum} ${operatorNum} ${secondNum}`;
+    displayNum.textContent = `${firstNum} ${operatorNum} ${secondNum} =`;
     let sumDigits = operate(operatorNum, firstNum, secondNum)
     displaySum.textContent = sumDigits;
+    operatorNum = null;
 }
 
 
