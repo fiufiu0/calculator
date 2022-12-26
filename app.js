@@ -22,7 +22,9 @@ operators.forEach((button) => {
 
 equalBtn.onclick = () => sum();
 
-allClear.onclick = () => {
+allClear.onclick = () => clearAll();
+
+function clearAll(){
     firstNum = '';
     secondNum = '';
     operatorNum = '';
