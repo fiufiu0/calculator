@@ -53,6 +53,11 @@ function evaluate(e){
 function sum(){
     if(operatorNum === null) return
     secondNum = displaySum.textContent;
+    if(operatorNum === '/' && secondNum === '0') {
+        clearAll()
+        return
+    }
+    secondNum = displaySum.textContent;
     displayNum.textContent = `${firstNum} ${operatorNum} ${secondNum} =`;
     let sumDigits = operate(operatorNum, firstNum, secondNum)
     displaySum.textContent = sumDigits;
