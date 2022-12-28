@@ -51,15 +51,15 @@ function evaluate(e){
 
 
 function sum(){
-    if(operatorNum === null) return
     secondNum = displaySum.textContent;
+    if(operatorNum === null) return
     if(operatorNum === '/' && secondNum === '0') {
         clearAll()
         return
     }
-    secondNum = displaySum.textContent;
+    
     displayNum.textContent = `${firstNum} ${operatorNum} ${secondNum} =`;
-    let sumDigits = operate(operatorNum, firstNum, secondNum)
+    let sumDigits = roundNumbers(operate(operatorNum, firstNum, secondNum))
     displaySum.textContent = sumDigits;
     operatorNum = null;
 }
@@ -94,4 +94,8 @@ function operate(operator, a, b){
         case "/":
             return divide(a,b);
     }
+}
+
+function roundNumbers(number){
+    return Math.round(number * 1000) / 1000;
 }
