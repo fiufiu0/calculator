@@ -2,7 +2,7 @@ const displayNum = document.getElementById('displayNum');
 const displaySum = document.getElementById('displaySum');
 const allClear = document.getElementById('allClear');
 const clear = document.getElementById('clear');
-const modulo = document.getElementById('modulo');
+// const modulo = document.getElementById('modulo');
 const equalBtn = document.getElementById('equalBtn');
 const buttons = document.querySelectorAll('.btn');
 const operators = document.querySelectorAll('[data-operator]');
@@ -81,6 +81,10 @@ function divide(a,b){
     return a / b;
 }
 
+function modulo(a,b){
+    return a % b;
+}
+
 function operate(operator, a, b){
     a = Number(a);
 	b = Number(b);
@@ -93,6 +97,8 @@ function operate(operator, a, b){
             return multiply(a,b);
         case "/":
             return divide(a,b);
+        case "%":
+            return modulo(a,b);
     }
 }
 
