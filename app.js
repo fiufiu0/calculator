@@ -2,10 +2,10 @@ const displayNum = document.getElementById('displayNum');
 const displaySum = document.getElementById('displaySum');
 const allClear = document.getElementById('allClear');
 const clear = document.getElementById('clear');
-// const modulo = document.getElementById('modulo');
 const equalBtn = document.getElementById('equalBtn');
 const buttons = document.querySelectorAll('.btn');
 const operators = document.querySelectorAll('[data-operator]');
+const dot = document.getElementById('dotBtn');
 
 let displayValue = '';
 let firstNum = '';
@@ -24,20 +24,17 @@ equalBtn.onclick = () => sum();
 
 allClear.onclick = () => clearAll();
 
-function clearAll(){
-    firstNum = '';
-    secondNum = '';
-    operatorNum = '';
-    displayValue = '';
-    displayNum.textContent = '';
-    displaySum.textContent = '0';
-}
-
 
 function displayNumbers(e){
     if(displayValue.length < 10){
-        displayValue += e.target.dataset.value;
-        displaySum.textContent = displayValue;
+            if(displayValue.includes('.')){
+                dot.style.pointerEvents = "none";
+                displayValue += e.target.dataset.value;
+                displaySum.textContent = displayValue;
+            } else {
+                displayValue += e.target.dataset.value;
+                displaySum.textContent = displayValue;
+            }
     } 
 }
 
@@ -46,7 +43,7 @@ function evaluate(e){
     operatorNum = e.target.innerText;
     displayNum.textContent = `${firstNum} ${operatorNum}`;
     displayValue = '';
-    
+    dot.style.pointerEvents = "unset";
 }
 
 
