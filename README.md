@@ -12,3 +12,5 @@ Calculator project from The Odin Project.
 ## Features
 
 - Basic operations are supported
+- Divide by 0 support
+- Round numbers
